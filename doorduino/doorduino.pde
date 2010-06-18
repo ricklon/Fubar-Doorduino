@@ -84,12 +84,14 @@ void servPage(Client client) {
           client.println("Content-Type: text/html");
           client.println();
           
-          client.print("lock: ");
-          client.print(lockState);
-          client.println("<br />");
-          client.print("door: ");
-          client.print(doorState);
-          client.println("<br />");
+          if (lockState == LOW)
+        	{
+        		client.print("The space is open.");
+        	}
+        	else
+        	{
+        		client.print("The space is closed.");
+        	}
           
           break;
         }
