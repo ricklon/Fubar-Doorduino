@@ -1,8 +1,12 @@
 /*
- * Web Server
- *
- * A simple web server that shows the value of the analog input pins.
- */
+doorduino.pde
+Fubar-Doorduino Project
+by Phil Gillhaus 6/11/10
+This sketch, when used in combination with the ethernet
+shield and the switch based lock and door sensors at 
+the FUBAR Labs hackerspace will serve a page declaring
+whether the space is open or closed.
+*/
 
 #include <Ethernet.h>
 
@@ -11,7 +15,6 @@ byte ip[] = { 192, 168, 1, 3 };
 
 Server server(80);
 
-int pinSpeaker = 9;
 int doorPin=8;
 int lockPin=7;
 int doorState=HIGH;
@@ -27,7 +30,6 @@ void setup()
 {
   Ethernet.begin(mac, ip);
   server.begin();
-  pinMode(pinSpeaker, OUTPUT);
   pinMode(doorPin, INPUT);
   pinMode(lockPin, OUTPUT);
 }
